@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" href="./css/style.css"/>
+	<link href="https://fonts.googleapis.com/css?family=Modak|Quicksand" rel="stylesheet">
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/plugins.js"></script>
+
+	<script>
+	$(function(){
+		$(".senha").keyup(function(){
+			var parms = { text: $(this).val()};
+			$(".senha").verify(parms);
+			var msg = $(".senhaMsg").text();
+			console.log(msg);
+			if(msg =="Muito fraca"){
+				$(".senhaMsg").css("color","red");
+			}
+			if(msg =="Fraca"){
+				$(".senhaMsg").css("color","orange");
+			}
+			if(msg =="Moderada"){
+				$(".senhaMsg").css("color","yellow");
+			}
+			if(msg =="Forte"){
+				$(".senhaMsg").css("color","green");
+			}
+		});
+		
+	});
+	</script>
+</head>
+<body>
+	<p class="titulo"> Cadastrar </h1>
+	<form>
+		<input type="text" class="nome campo" placeholder="Digite seu nome" /><br/>
+		<input type="password" class="senha campo" placeholder="Digite sua senha"/><p class="senhaMsg"></p><br>
+		<input type="submit" class="submit campo"/>
+	</form>
+</body>
+</html>
